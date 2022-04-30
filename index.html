@@ -4,34 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona o kontach za 1 mln dolarow</title>
-
-    <script>
-        hello="Hello World";
-        liczba1="3";
-        liczba2=3;
-        liczba3=liczba1+liczba2;
-        console.log(hello);
-        document.addEventListener("DOMContentLoaded", function() {
-            elem = document.getElementById("box");
-            console.log(elem);
-            elem.innerHTML = liczba3;
-
-            const input = document.getElementById('pole');
-            const log = document.getElementById('box');
-
-            input.addEventListener('change', updateValue);
-
-            function updateValue(e) {
-                log.textContent = e.target.value;
-            }
-        });
-
-        
-    </script>
+    <title>Document</title>
 </head>
-<body>
-    <div id="box"></div>
-    <input id="pole"></input>
+<script>  
+
+document.addEventListener("DOMContentLoaded", function() {
+// Czekamy na wczytanie dokumentu
+var input1 = document.getElementById('pole1');
+// Przypisujemy input o id pole1 do zmiennej input1
+var input2 = document.getElementById('pole2');
+// Przypisujemy input o id pole2 do zmiennej input2
+input1.addEventListener('change', updateValue);
+// Uruchamiamy updatevalue, kiedy zmieni się coś w polu1
+input2.addEventListener('change', updateValue);
+// Uruchamiamy updatevalue, kiedy zmieni się coś w polu2
+
+
+
+// Definiujemy funkcję, która przyjmuje 2 argumenty
+function dodawanie(liczba1,liczba2) {
+
+  log = document.getElementById("box");
+//   Przypisujemy div o id box do zmiennej log
+  console.log(liczba1);
+  console.log(liczba2);
+  log.textContent = liczba1 + liczba2 ;
+// Do środka diva o id box wyswietlamy sume zmiennych
+}; 
+
+function updateValue(e) {
+    console.log (e.target.value);
+    // Wyświetlanie wartosci jaka trafi do funkcji z pól nadsłuchiwanych
+     pole1 = Number(document.getElementById('pole1').value);
+     // Pobieranie wartości z pola html input o id pole1 i zamiana na wartość liczbową
+     pole2 = Number(document.getElementById('pole2').value);
+       // Pobieranie wartości z pola html input o id pole2 i zamiana na wartość liczbową
+    dodawanie(pole1,pole2);
+//  Wykonywanie funkcji dodawanie
+}
+
+
+});
+
+</script>
+<body>    
+
+    <input id="pole1" type="text" />+
+
+    
+    <input id="pole2" type="text" /> 
+    =    <div id="box"></div>
 </body>
-</html>
+</html> 
