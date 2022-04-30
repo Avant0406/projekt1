@@ -8,17 +8,30 @@
 
     <script>
         hello="Hello World";
+        liczba1="3";
+        liczba2=3;
+        liczba3=liczba1+liczba2;
         console.log(hello);
         document.addEventListener("DOMContentLoaded", function() {
             elem = document.getElementById("box");
             console.log(elem);
-            elem.innerHTML = "Hello World!!";
+            elem.innerHTML = liczba3;
+
+            const input = document.getElementById('pole');
+            const log = document.getElementById('box');
+
+            input.addEventListener('change', updateValue);
+
+            function updateValue(e) {
+                log.textContent = e.target.value;
+            }
         });
+
+        
     </script>
 </head>
 <body>
-    <div id="box">
-        
-    </div>
+    <div id="box"></div>
+    <input id="pole"></input>
 </body>
 </html>
