@@ -82,16 +82,21 @@ firstMove = "x";
 
 function gra(e){
   console.log(e.target.id);
-  document.getElementById(e.target.id).innerHTML=firstMove;
-  if(firstMove == "x"){
-    firstMove = "o";
-  }
-  else{
-    firstMove = "x";
-  }
-}
-});
+  targetId = document.getElementById(e.target.id) ;
 
+  if(targetId.innerHTML == ""){
+  targetId.innerHTML = firstMove ;
+  
+    if(firstMove == "x"){
+      firstMove = "o";
+    }
+    else{
+      firstMove = "x";
+    }
+  }
+
+};
+});
 </script>
 <body>    
 
