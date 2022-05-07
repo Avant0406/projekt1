@@ -79,8 +79,25 @@ function updateValue(e) {
 tabela.addEventListener("click", gra)
 
 firstMove = "x";
+numberOfMove = 0;
+
+function resetGame(){
+  document.getElementById("p1").innerHTML = "";
+  document.getElementById("p2").innerHTML = "";
+  document.getElementById("p3").innerHTML = "";
+  document.getElementById("p4").innerHTML = "";
+  document.getElementById("p5").innerHTML = "";
+  document.getElementById("p6").innerHTML = "";
+  document.getElementById("p7").innerHTML = "";
+  document.getElementById("p8").innerHTML = "";
+  document.getElementById("p9").innerHTML = "";
+  reset.disabled = true;
+  tabela.addEventListener("click", gra);
+  numberOfMove = 0;
+}
 
 function gra(e){
+  numberOfMove++;
   console.log(e.target.id);
   targetId = document.getElementById(e.target.id) ;
 
@@ -94,8 +111,95 @@ function gra(e){
       firstMove = "x";
     }
   }
-
+  if(numberOfMove == 9){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  reset = document.getElementById("reset");
+  reset.addEventListener("click", resetGame)
+  p1=document.getElementById("p1").innerHTML;
+  p2=document.getElementById("p2").innerHTML;
+  p3=document.getElementById("p3").innerHTML;
+  p4=document.getElementById("p4").innerHTML;
+  p5=document.getElementById("p5").innerHTML;
+  p6=document.getElementById("p6").innerHTML;
+  p7=document.getElementById("p7").innerHTML;
+  p8=document.getElementById("p8").innerHTML;
+  p9=document.getElementById("p9").innerHTML;
+  wygrana1=p1+p2+p3;
+  wygrana2=p4+p5+p6;
+  wygrana3=p7+p8+p9;
+  wygrana4=p1+p4+p7;
+  wygrana5=p2+p5+p8;
+  wygrana6=p3+p6+p9;
+  wygrana7=p1+p5+p9;
+  wygrana8=p3+p5+p7;
+  if(wygrana1 == "xxx"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana2 == "xxx"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana3 == "xxx"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana4 == "xxx"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana5 == "xxx"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana6 == "xxx"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana7 == "xxx"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana8 == "xxx"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana1 == "ooo"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana2 == "ooo"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana3 == "ooo"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana4 == "ooo"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana5 == "ooo"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana6 == "ooo"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana7 == "ooo"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
+  if(wygrana8 == "ooo"){
+    reset.disabled = false;
+    tabela.removeEventListener("click", gra);
+  }
 };
+
 });
 </script>
 <body>    
@@ -123,5 +227,7 @@ function gra(e){
             <td id="p9"></td>
         </tr>
     </table>
+
+    <button id="reset" type="button" disabled>Zagraj ponownie</button>
 </body>
 </html> 
