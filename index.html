@@ -5,8 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+<style>
+  table, th, td {
+  border: 1px solid black;
+  width: 800px;
+  height: 100px;
+}
+td {
+  text-align: center;
+  width:10px solid black ;
+  height: 10px solid black;
+  font-size: 24px;
+}
+</style>
 </head>
-<script>  
+<script> 
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
 // Czekamy na wczytanie dokumentu
@@ -32,18 +48,48 @@ function dodawanie(liczba1,liczba2) {
 // Do środka diva o id box wyswietlamy sume zmiennych
 }; 
 
+function dodawanie(liczba1,liczba2) {
+
+log = document.getElementById("box");
+//   Przypisujemy div o id box do zmiennej log
+console.log(liczba1);
+console.log(liczba2);
+log.textContent = liczba1 + liczba2 ;
+if(log.textContent == 'NaN'){
+  log.textContent = "to nie jest liczba";
+} 
+if (Number(log.textContent) > 200 ){
+   log.textContent = "ta liczba jest za duza";
+}
+// Do środka diva o id box wyswietlamy sume zmiennych
+}; 
+
+
+
 function updateValue(e) {
-    console.log (e.target.value);
-    // Wyświetlanie wartosci jaka trafi do funkcji z pól nadsłuchiwanych
-     pole1 = Number(document.getElementById('pole1').value);
-     // Pobieranie wartości z pola html input o id pole1 i zamiana na wartość liczbową
-     pole2 = Number(document.getElementById('pole2').value);
-       // Pobieranie wartości z pola html input o id pole2 i zamiana na wartość liczbową
-    dodawanie(pole1,pole2);
+  console.log (e.target.value);
+  // Wyświetlanie wartosci jaka trafi do funkcji z pól nadsłuchiwanych
+   pole1 = parseInt(document.getElementById('pole1').value);
+   // Pobieranie wartości z pola html input o id pole1 i zamiana na wartość liczbową
+   pole2 = parseInt(document.getElementById('pole2').value);
+     // Pobieranie wartości z pola html input o id pole2 i zamiana na wartość liczbową
+  dodawanie(pole1,pole2);
 //  Wykonywanie funkcji dodawanie
 }
+tabela.addEventListener("click", gra)
 
+firstMove = "x";
 
+function gra(e){
+  console.log(e.target.id);
+  document.getElementById(e.target.id).innerHTML=firstMove;
+  if(firstMove == "x"){
+    firstMove = "o";
+  }
+  else{
+    firstMove = "x";
+  }
+}
 });
 
 </script>
@@ -53,6 +99,24 @@ function updateValue(e) {
 
     
     <input id="pole2" type="text" /> 
-    =    <div id="box"></div>
+    =   <div id="box"></div>
+
+    <table id="tabela" style="margin-top: 50px;">
+        <tr>
+            <td id="p1"></td>
+            <td id="p2"></td>
+            <td id="p3"></td>
+        </tr>
+        <tr>
+            <td id="p4"></td>
+            <td id="p5"></td>
+            <td id="p6"></td>
+        </tr>
+        <tr>
+            <td id="p7"></td>
+            <td id="p8"></td>
+            <td id="p9"></td>
+        </tr>
+    </table>
 </body>
 </html> 
