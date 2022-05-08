@@ -6,334 +6,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <script src="/js/app.js"></script>
+
 <style>
 table, th, td {
   background: #474747;
   color: silver;
-  border: 1px solid orange;
+  border: 2px solid orange;
   width: 330px;
   height: 100px;
+  border-radius: 10px;
+  font-family: 'Comic Sans MS';
+}
+table {
+  box-shadow: 0 0 10px 2px black;
 }
 td {
   text-align: center;
-  width: 100px solid #474747 ;
-  height: 100px solid #474747;
+  width: 33% solid #474747 ;
+  height: 33% solid #474747;
   font-size: 35px;
 }
 #game_title {
+  text-align: center;
   color: orange;
+  text-transform: uppercase;
   font-family: 'Comic Sans MS';
   margin-top: 15px;
   margin-bottom: 5px;
 }
-#zwyciezca {
-  color: orange;
+#winner {
   font-family: 'Comic Sans MS';
+  color: orange;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 #reset {
-  color: silver;
+  color: orange;
   background: #474747;
   border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
+button:hover {
+  opacity: 0.9;
+}
+#game {
+  margin-left: auto;
+  margin-right: auto;
+  width: 330px;
 }
 </style>
 </head>
-<script> 
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
-// Czekamy na wczytanie dokumentu
-var input1 = document.getElementById('pole1');
-// Przypisujemy input o id pole1 do zmiennej input1
-var input2 = document.getElementById('pole2');
-// Przypisujemy input o id pole2 do zmiennej input2
-input1.addEventListener('change', updateValue);
-// Uruchamiamy updatevalue, kiedy zmieni się coś w polu1
-input2.addEventListener('change', updateValue);
-// Uruchamiamy updatevalue, kiedy zmieni się coś w polu2
-
-
-
-// Definiujemy funkcję, która przyjmuje 2 argumenty
-function dodawanie(liczba1,liczba2) {
-
-  log = document.getElementById("box");
-//   Przypisujemy div o id box do zmiennej log
-  console.log(liczba1);
-  console.log(liczba2);
-  log.textContent = liczba1 + liczba2 ;
-// Do środka diva o id box wyswietlamy sume zmiennych
-}; 
-
-function dodawanie(liczba1,liczba2) {
-
-log = document.getElementById("box");
-//   Przypisujemy div o id box do zmiennej log
-console.log(liczba1);
-console.log(liczba2);
-log.textContent = liczba1 + liczba2 ;
-if(log.textContent == 'NaN'){
-  log.textContent = "to nie jest liczba";
-} 
-if (Number(log.textContent) > 200 ){
-   log.textContent = "ta liczba jest za duza";
-}
-// Do środka diva o id box wyswietlamy sume zmiennych
-}; 
-
-
-
-function updateValue(e) {
-  console.log (e.target.value);
-  // Wyświetlanie wartosci jaka trafi do funkcji z pól nadsłuchiwanych
-   pole1 = parseInt(document.getElementById('pole1').value);
-   // Pobieranie wartości z pola html input o id pole1 i zamiana na wartość liczbową
-   pole2 = parseInt(document.getElementById('pole2').value);
-     // Pobieranie wartości z pola html input o id pole2 i zamiana na wartość liczbową
-  dodawanie(pole1,pole2);
-//  Wykonywanie funkcji dodawanie
-}
-tabela.addEventListener("click", gra)
-
-firstMove = "x";
-numberOfMove = 0;
-
-function resetGame(){
-  document.getElementById("p1").innerHTML = "";
-  document.getElementById("p2").innerHTML = "";
-  document.getElementById("p3").innerHTML = "";
-  document.getElementById("p4").innerHTML = "";
-  document.getElementById("p5").innerHTML = "";
-  document.getElementById("p6").innerHTML = "";
-  document.getElementById("p7").innerHTML = "";
-  document.getElementById("p8").innerHTML = "";
-  document.getElementById("p9").innerHTML = "";
-  reset.disabled = true;
-  tabela.addEventListener("click", gra);
-  numberOfMove = 0;
-  zwyciezca = document.getElementById("zwyciezca")
-  zwyciezca.textContent = ""
-}
-
-function gra(e){
-  numberOfMove++;
-  console.log(e.target.id);
-  targetId = document.getElementById(e.target.id) ;
-
-  if(targetId.innerHTML == ""){
-  targetId.innerHTML = firstMove ;
-  
-    if(firstMove == "x"){
-      firstMove = "o";
-    }
-    else{
-      firstMove = "x";
-    }
-  }
-  if(numberOfMove == 9){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: -"
-  }
-  reset = document.getElementById("reset");
-  reset.addEventListener("click", resetGame)
-  p1=document.getElementById("p1").innerHTML;
-  p2=document.getElementById("p2").innerHTML;
-  p3=document.getElementById("p3").innerHTML;
-  p4=document.getElementById("p4").innerHTML;
-  p5=document.getElementById("p5").innerHTML;
-  p6=document.getElementById("p6").innerHTML;
-  p7=document.getElementById("p7").innerHTML;
-  p8=document.getElementById("p8").innerHTML;
-  p9=document.getElementById("p9").innerHTML;
-  wygrana1=p1+p2+p3;
-  wygrana2=p4+p5+p6;
-  wygrana3=p7+p8+p9;
-  wygrana4=p1+p4+p7;
-  wygrana5=p2+p5+p8;
-  wygrana6=p3+p6+p9;
-  wygrana7=p1+p5+p9;
-  wygrana8=p3+p5+p7;
-  if(wygrana1 == "xxx"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p1").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p2").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p3").innerHTML = '<div style="color:#00cc00">x</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: krzyżyki"
-  }
-  if(wygrana2 == "xxx"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p4").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p5").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p6").innerHTML = '<div style="color:#00cc00">x</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: krzyżyki"
-  }
-  if(wygrana3 == "xxx"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p7").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p8").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p9").innerHTML = '<div style="color:#00cc00">x</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: krzyżyki"
-  }
-  if(wygrana4 == "xxx"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p1").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p4").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p7").innerHTML = '<div style="color:#00cc00">x</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: krzyżyki"
-  }
-  if(wygrana5 == "xxx"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p2").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p5").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p8").innerHTML = '<div style="color:#00cc00">x</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: krzyżyki"
-  }
-  if(wygrana6 == "xxx"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p3").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p6").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p9").innerHTML = '<div style="color:#00cc00">x</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: krzyżyki"
-  }
-  if(wygrana7 == "xxx"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p1").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p5").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p9").innerHTML = '<div style="color:#00cc00">x</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: krzyżyki"
-  }
-  if(wygrana8 == "xxx"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p3").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p5").innerHTML = '<div style="color:#00cc00">x</div>';
-    document.getElementById("p7").innerHTML = '<div style="color:#00cc00">x</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: krzyżyki"
-  }
-  if(wygrana1 == "ooo"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p1").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p2").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p3").innerHTML = '<div style="color:#00cc00">o</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: kółka"
-  }
-  if(wygrana2 == "ooo"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p4").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p5").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p6").innerHTML = '<div style="color:#00cc00">o</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: kółka"
-  }
-  if(wygrana3 == "ooo"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p7").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p8").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p9").innerHTML = '<div style="color:#00cc00">o</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: kółka"
-  }
-  if(wygrana4 == "ooo"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p1").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p4").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p7").innerHTML = '<div style="color:#00cc00">o</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: kółka"
-  }
-  if(wygrana5 == "ooo"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p2").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p5").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p8").innerHTML = '<div style="color:#00cc00">o</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: kółka"
-  }
-  if(wygrana6 == "ooo"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p3").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p6").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p9").innerHTML = '<div style="color:#00cc00">o</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: kółka"
-  }
-  if(wygrana7 == "ooo"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p1").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p5").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p9").innerHTML = '<div style="color:#00cc00">o</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: kółka"
-  }
-  if(wygrana8 == "ooo"){
-    reset.disabled = false;
-    tabela.removeEventListener("click", gra);
-    document.getElementById("p3").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p5").innerHTML = '<div style="color:#00cc00">o</div>';
-    document.getElementById("p7").innerHTML = '<div style="color:#00cc00">o</div>';
-    zwyciezca = document.getElementById("zwyciezca")
-    zwyciezca.textContent = "Zwycięzca: kółka"
-  }
-};
-
-});
-</script>
 <body>    
-
-    <input id="pole1" type="text" />+
-
-    
-    <input id="pole2" type="text" /> 
-    =   <div id="box"></div>
-
+  <div id="game">
     <h1 id="game_title">Kółko i krzyżyk</h1>
     <table id="tabela">
-        <tr>
-            <td id="p1"></td>
-            <td id="p2"></td>
-            <td id="p3"></td>
-        </tr>
-        <tr>
-            <td id="p4"></td>
-            <td id="p5"></td>
-            <td id="p6"></td>
-        </tr>
-        <tr>
-            <td id="p7"></td>
-            <td id="p8"></td>
-            <td id="p9"></td>
-        </tr>
+      <tr>
+        <td id="p1"></td>
+        <td id="p2"></td>
+        <td id="p3"></td>
+      </tr>
+      <tr>
+        <td id="p4"></td>
+        <td id="p5"></td>
+        <td id="p6"></td>
+      </tr>
+      <tr>
+        <td id="p7"></td>
+        <td id="p8"></td>
+        <td id="p9"></td>
+      </tr>
     </table>
-    <div id="zwyciezca"></div>
-
+    <div id="winner"></div>
     <button id="reset" type="button" disabled>Zagraj ponownie</button>
+  </div>
 </body>
 </html> 
