@@ -46,9 +46,11 @@ document.addEventListener("DOMContentLoaded", function() {
       function getElementP(elem,what) {
         document.getElementById("p"+elem).innerHTML = '<div style="color:#00cc00">'+what+'</div>'
       }
+      // kolorowanie kółek, krzyżyków
       function getResult(info) {
         document.getElementById("winner").innerHTML = info;
       }
+      // funkcja ktora przekazuje parametr info do elementu o id winner
       function wygranaGry(x,kto,par1,par2,par3){
         wygrana[x]=p[par1] + p[par2] + p[par3];
         console.log(wygrana[x]);
@@ -69,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
           tabela.removeEventListener("click",gra);
           }
       }
+      // funkcja ktora podstawia parametry pod wygrana
       wynik = [];
       wynik[1] = 'xxx';
       wynik[2] = 'ooo';
