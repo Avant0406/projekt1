@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
-    tabela.addEventListener("click", gra)
+    tabela.addEventListener("click", gra);
     
-    firstMove = "x";
+    firstMove = '<img src="/img/x.png" />';
     numberOfMove = 0;
+    nameField = "x";
     
     function resetGame(){
       for(x=1;x<10;x++){
         document.getElementById("p"+x).innerHTML = "";
+        document.getElementById("p"+x).setAttribute("name", "");
       }
       reset.disabled = true;
       tabela.addEventListener("click", gra);
@@ -21,15 +23,17 @@ document.addEventListener("DOMContentLoaded", function() {
     function gra(e){
       numberOfMove++;
       console.log(e.target.id);
-      targetId = document.getElementById(e.target.id) ;
+      targetId = document.getElementById(e.target.id)
       if(targetId.innerHTML == ""){
       targetId.innerHTML = firstMove ;
-      
-        if(firstMove == "x"){
-          firstMove = "o";
+      targetId.setAttribute("name", nameField)
+        if(firstMove == '<img src="/img/x.png" />'){
+          firstMove = '<img src="/img/o.png" />';
+          nameField = "o";
         }
         else{
-          firstMove = "x";
+          firstMove = '<img src="/img/x.png" />';
+          nameField = "x";
         }
       }
       if(numberOfMove == 9){
@@ -41,10 +45,10 @@ document.addEventListener("DOMContentLoaded", function() {
       reset = document.getElementById("reset");
       reset.addEventListener("click", resetGame)
       for(x=1;x<10;x++){
-        p[x] = document.getElementById("p"+x).innerHTML;
+        p[x] = document.getElementById("p"+x).getAttribute("name");
       } 
       function getElementP(elem,what) {
-        document.getElementById("p"+elem).innerHTML = '<div style="color:#00cc00">'+what+'</div>'
+        document.getElementById("p"+elem).innerHTML = '<img src="/img/'+what+'_green.png" />';
       }
       // kolorowanie kółek, krzyżyków
       function getResult(info) {

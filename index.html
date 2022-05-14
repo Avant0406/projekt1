@@ -6,56 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Luckiest+Guy&display=swap" rel="stylesheet">
+
     <script src="/js/app.js"></script>
 
 <style>
+body {
+  background: url(/img/bg.jpg) no-repeat;
+  background-size: 100%;
+  margin: 0;
+  padding: 0;
+}
 table, th, td {
   background: #474747;
   color: silver;
-  border: 2px solid orange;
+  border: 2px solid silver;
   width: 330px;
   height: 100px;
-  border-radius: 10px;
-  font-family: 'Comic Sans MS';
-}
-table {
-  box-shadow: 0 0 10px 2px black;
+  border-collapse: collapse;
+  border-spacing: 0;
+  padding
 }
 td {
   text-align: center;
-  width: 33% solid #474747 ;
-  height: 33% solid #474747;
+  width: 110px solid #474747 ;
+  height: 110px solid #474747;
   font-size: 35px;
+}
+img {
+  width: 50%;
+  height: 50%;
 }
 #game_title {
   text-align: center;
-  color: orange;
+  color: silver;
   text-transform: uppercase;
-  font-family: 'Comic Sans MS';
   margin-top: 15px;
-  margin-bottom: 5px;
 }
 #winner {
-  font-family: 'Comic Sans MS';
-  color: orange;
+  background: #474747;
+  font-size: 16,5px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
   margin-top: 5px;
-  margin-bottom: 5px;
+  color: yellow;
+  width: 100%;
 }
 #reset {
-  color: orange;
+  color: silver;
+  font-size: 15px;
+  text-transform: uppercase;
   background: #474747;
-  border-radius: 10px;
+  border: none;
   cursor: pointer;
   font-weight: bold;
+  margin-top: 5px;
   width: 100%;
 }
 button:hover {
   opacity: 0.9;
 }
 #game {
+  background-color: #474747;
+  font-family: 'Black Ops One', cursive;
+  margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
-  width: 330px;
+  width: 329px;
+  box-shadow: 0 0 10px 2px black;
+  border: 2px solid silver;
 }
 </style>
 </head>
