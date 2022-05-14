@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     firstMove = '<img src="/img/x.png" />';
     numberOfMove = 0;
     nameField = "x";
+    winsX = 0;
+    winsO = 0;
     
     function resetGame(){
       for(x=1;x<10;x++){
@@ -17,14 +19,23 @@ document.addEventListener("DOMContentLoaded", function() {
       winner.textContent = ""
     }
     
+    function resetStatistics(){
+      document.getElementById("winsX").innerHTML = 0;
+      document.getElementById("winsO").innerHTML = 0;
+      tabela.addEventListener("click", gra)
+      winsX = document.getElementById("winsX")
+      winsX.textContent = "Zwycięstwa krzyżyków: 0";
+      winsO = document.getElementById("winsO")
+      winsO.textContent = "Zwycięstwa kółek: 0";
+    }
     p=[];
     wygrana=[];
     
     function gra(e){
-      numberOfMove++;
       console.log(e.target.id);
       targetId = document.getElementById(e.target.id)
       if(targetId.innerHTML == ""){
+      numberOfMove++;
       targetId.innerHTML = firstMove ;
       targetId.setAttribute("name", nameField)
         if(firstMove == '<img src="/img/x.png" />'){
@@ -44,15 +55,24 @@ document.addEventListener("DOMContentLoaded", function() {
       }
       reset = document.getElementById("reset");
       reset.addEventListener("click", resetGame)
+      reset2 = document.getElementById("reset2");
+      reset2.addEventListener("click", resetStatistics)
+
       for(x=1;x<10;x++){
         p[x] = document.getElementById("p"+x).getAttribute("name");
       } 
       function getElementP(elem,what) {
-        document.getElementById("p"+elem).innerHTML = '<img src="/img/'+what+'_green.png" />';
+        document.getElementById("p"+elem).innerHTML = '<img src="/img/'+what+'_green.png" style="opacity: 0.7;"/>';
       }
       // kolorowanie kółek, krzyżyków
       function getResult(info) {
         document.getElementById("winner").innerHTML = info;
+      }
+      function getWinsX(i) {
+        document.getElementById("winsX").innerHTML = i;
+      }
+      function getWinsO(i) {
+        document.getElementById("winsO").innerHTML = i;
       }
       // funkcja ktora przekazuje parametr info do elementu o id winner
       function wygranaGry(x,kto,par1,par2,par3){
@@ -63,14 +83,18 @@ document.addEventListener("DOMContentLoaded", function() {
               getElementP(par1,"x");
               getElementP(par2,"x");
               getElementP(par3,"x");
-              getResult("Zwycięzca: krzyżyki");
+              getResult("Zwycięzca - krzyżyki");
+              winsX+=1;
+              getWinsX("Zwycięstwa krzyżyków: "+winsX)
             }
           if (kto == "ooo") {
               getElementP(par1,"o");
               getElementP(par2,"o");
               getElementP(par3,"o");
-              getResult("Zwycięzca: kółka");
-          }
+              getResult("Zwycięzca - kółka");
+              winsO+=1
+              getWinsO("Zwycięstwa kółek: "+winsO)
+            }
           reset.disabled = false ;
           tabela.removeEventListener("click",gra);
           }
