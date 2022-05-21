@@ -3,10 +3,17 @@
 
 <head>
 
-    <script src="/js/app.js"></script>
-    <script src="/js/pierwiastki.js"></script>
 </head>
 <style>
+.checker {
+  position:relative;
+  background-color: #9999FF !important;
+  width: 5vw;
+  height: 5vh;
+  padding: 2px;
+  margin: 2px;
+  float: left;
+}
 .container {
 	display: flex;
 }
@@ -33,9 +40,9 @@
   text-align: left;
 }
 
-.green {
+.lightgreen {
   position:relative;
-  background-color: lightgreen;
+  background-color: #99FF99 !important;
   width: 5vw;
   height: 5vh;
   padding: 2px;
@@ -43,9 +50,9 @@
   float: left;
 }
 
-.dark_green {
+.lightred {
   position:relative;
-  background-color: darkgreen;
+  background-color: #FF9999 !important;
   width: 5vw;
   height: 5vh;
   padding: 2px;
@@ -53,79 +60,9 @@
   float: left;
 }
 
-.lime_green {
+.lightgrey {
   position:relative;
-  background-color: #80ffd4;
-  width: 5vw;
-  height: 5vh;
-  padding: 2px;
-  margin: 2px;
-  float: left;
-}
-
-.pink{
-  position:relative;
-  background-color: #ff33bb;
-  width: 5vw;
-  height: 5vh;
-  padding: 2px;
-  margin: 2px;
-  float: left;
-}
-
-.blue {
-  position:relative;
-  background-color: lightblue;
-  width: 5vw;
-  height: 5vh;
-  padding: 2px;
-  margin: 2px;
-  float: left;
-}
-
-.orange {
-  position:relative;
-  background-color: #f7d076;
-  width: 5vw;
-  height: 5vh;
-  padding: 2px;
-  margin: 2px;
-  float: left;
-}
-
-.dark_orange {
-  position:relative;
-  background-color: #b35900;
-  width: 5vw;
-  height: 5vh;
-  padding: 2px;
-  margin: 2px;
-  float: left;
-}
-
-.red {
-  position:relative;
-  background-color:#ffb3b3 ;
-  width: 5vw;
-  height: 5vh;
-  padding: 2px;
-  margin: 2px;
-  float: left;
-}
-
-.dark_red {
-  position:relative;
-  background-color:#992600 ;
-  width: 5vw;
-  height: 5vh;
-  padding: 2px;
-  margin: 2px;
-  float: left;
-}
-
-.yellow {
-  position:relative;
-  background-color: #e6f776;
+  background-color: lightgrey;
   width: 5vw;
   height: 5vh;
   padding: 2px;
@@ -152,7 +89,7 @@ p.gone{
 
 <!--row 1-->
 <div class="container">
-	<div  class="green"> <div class="dr"><small>1.008</small></div> <div class="symbol"><b>H</b></div>  <div class="num_of_ele"><small>1</small></div></div>
+	<div  class="lightgrey"> <div class="dr"><small>1.008</small></div> <div class="symbol"><b>H</b></div>  <div class="num_of_ele"><small>1</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
@@ -169,14 +106,14 @@ p.gone{
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
-	<div class="blue"> <div class="dr"><small>4.0026</small></div> <div class="symbol"><b>He</b></div> <div class="num_of_ele"><small>2</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>4.0026</small></div> <div class="symbol"><b>He</b></div> <div class="num_of_ele"><small>2</small></div></div>
 </div>
 
 
 <!--row 2-->
 <div class="container">
-	<div class="orange"> <div class="dr"><small>6.94</small></div> <div class="symbol"><b>Li</b></div> <div class="num_of_ele"><small>3</small></div></div>
-	<div class="yellow"> <div class="dr"><small>9.0122</small></div>   <div class="symbol"><b>Be</b></div> <div class="num_of_ele"><small>4</small> </div></div>
+	<div class="lightgrey"> <div class="dr"><small>6.94</small></div> <div class="symbol"><b>Li</b></div> <div class="num_of_ele"><small>3</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>9.0122</small></div>   <div class="symbol"><b>Be</b></div> <div class="num_of_ele"><small>4</small> </div></div>
 
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
@@ -188,19 +125,19 @@ p.gone{
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
-	<div class="dark_green">  <div class="dr"><small>10.81</small></div> <div class="symbol"><b>B</b></div> <div class="num_of_ele"><small>5</small></div></div>
-	<div class="green">  <div class="dr"><small>12.011</small></div> <div class="symbol"><b>C</b></div> <div class="num_of_ele"><small>6</small></div> </div>
-	<div class="green">  <div class="dr"><small>14.007</small></div> <div class="symbol"><b>N</b></div> <div class="num_of_ele"> <small>7</small></div> </div>
-	<div class="green">  <div class="dr"><small>15.999</small></div> <div class="symbol"><b>O</b></div> <div class="num_of_ele"><small>8</small> </div></div>
-	<div class="green">  <div class="dr"><small>18.998</small></div> <div class="symbol"><b>F</b></div> <div class="num_of_ele"><small>9</small></div> </div>
-	<div class="blue">  <div class="dr"><small>20.180</small></div>  <div class="symbol"><b>NE</b></div> <div class="num_of_ele"><small>10</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>10.81</small></div> <div class="symbol"><b>B</b></div> <div class="num_of_ele"><small>5</small></div></div>
+	<div class="lightgrey">  <div class="dr"><small>12.011</small></div> <div class="symbol"><b>C</b></div> <div class="num_of_ele"><small>6</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>14.007</small></div> <div class="symbol"><b>N</b></div> <div class="num_of_ele"> <small>7</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>15.999</small></div> <div class="symbol"><b>O</b></div> <div class="num_of_ele"><small>8</small> </div></div>
+	<div class="lightgrey">  <div class="dr"><small>18.998</small></div> <div class="symbol"><b>F</b></div> <div class="num_of_ele"><small>9</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>20.180</small></div>  <div class="symbol"><b>NE</b></div> <div class="num_of_ele"><small>10</small></div> </div>
 </div>
 
 
 <!--row 3-->
 <div class="container">
-	<div class="orange">  <div class="dr"><small>22.990</small></div> <div class="symbol"><b>NA</b></div> <div class="num_of_ele"><small>11</small></div> </div>
-	<div class="yellow">  <div class="dr"><small>24.305</small></div> <div class="symbol"><b>Mg</b></div> <div class="num_of_ele"><small>12</small></div></div>
+	<div class="lightgrey">  <div class="dr"><small>22.990</small></div> <div class="symbol"><b>NA</b></div> <div class="num_of_ele"><small>11</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>24.305</small></div> <div class="symbol"><b>Mg</b></div> <div class="num_of_ele"><small>12</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
@@ -211,104 +148,104 @@ p.gone{
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
-	<div class="lime_green"> <div class="dr"><small>26.982</small></div> <div class="symbol"><b>Al</b></div> <div class="num_of_ele"><small>13</small></div> </div>
-	<div class="dark_green"> <div class="dr"><small>28.085</small></div> <div class="symbol"><b>Si</b></div> <div class="num_of_ele"><small>14</small></div> </div>
-	<div class="green"> <div class="dr"><small>30.974</small></div> <div class="symbol"><b>P</b></div> <div class="num_of_ele"><small>15</small></div></div>
-	<div class="green"> <div class="dr"><small>32.06</small></div> <div class="symbol"><b>S</b></div> <div class="num_of_ele"><small>16</small></div></div>
-	<div class="green"> <div class="dr"><small>35.45</small></div> <div class="symbol"><b>Cl</b></div> <div class="num_of_ele"><small>17</small></div></div>
-	<div class="blue"> <div class="dr"><small>39.948</small></div> <div class="symbol"><b>Ar</b></div> <div class="num_of_ele"><small>18</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>26.982</small></div> <div class="symbol"><b>Al</b></div> <div class="num_of_ele"><small>13</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>28.085</small></div> <div class="symbol"><b>Si</b></div> <div class="num_of_ele"><small>14</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>30.974</small></div> <div class="symbol"><b>P</b></div> <div class="num_of_ele"><small>15</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>32.06</small></div> <div class="symbol"><b>S</b></div> <div class="num_of_ele"><small>16</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>35.45</small></div> <div class="symbol"><b>Cl</b></div> <div class="num_of_ele"><small>17</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>39.948</small></div> <div class="symbol"><b>Ar</b></div> <div class="num_of_ele"><small>18</small></div></div>
 </div>
 
 
 <!--row 4-->
 <div class="container">
-	<div class="orange"> <div class="dr"><small>39.098</small></div> <div class="symbol"><b>K</b></div> <div class="num_of_ele"><small>19</small></div> </div>
-	<div class="yellow"> <div class="dr"><small>40.078</small></div> <div class="symbol"><b>Ca</b></div> <div class="num_of_ele"><small>20</small></div> </div>
-	<div class="pink"> <div class="dr"><small>44.956</small></div> <div class="symbol"><b>Sc</b></div> <div class="num_of_ele"><small>21</small></div> </div>
-	<div class="pink"> <div class="dr"><small>47.867</small></div> <div class="symbol"><b>Ti</b></div> <div class="num_of_ele"><small>22</small></div></div>
-	<div class="pink"> <div class="dr"><small>50.942</small></div> <div class="symbol"><b>V</b></div> <div class="num_of_ele"><small>23</small></div></div>
-	<div class="pink"> <div class="dr"><small>51.966</small></div> <div class="symbol"><b>Cr</b></div> <div class="num_of_ele"><small>24</small></div></div>
-	<div class="pink"> <div class="dr"><small>54.938</small></div> <div class="symbol"><b>Mn</b></div> <div class="num_of_ele"> <small>25</small></div></div>
-	<div class="pink"> <div class="dr"><small>55.845</small></div> <div class="symbol"><b>Fe</b></div> <div class="num_of_ele"><small>26</small></div> </div>
-	<div class="pink"> <div class="dr"><small>58.933</small></div> <div class="symbol"><b>Co</b></div> <div class="num_of_ele"><small>27</small></div></div>
-	<div class="pink"> <div class="dr"><small>58.693</small></div> <div class="symbol"><b>Ni</b></div> <div class="num_of_ele"><small>28</small></div></div>
-	<div class="pink"> <div class="dr"><small>63.546</small></div> <div class="symbol"><b>Cu</b></div> <div class="num_of_ele"><small>29</small></div></div>
-	<div class="pink"> <div class="dr"><small>65.38</small></div>  <div class="symbol"><b>Zn</b></div> <div class="num_of_ele"><small>30</small></div></div>
-	<div class="lime_green"> <div class="dr"><small>69.723</small></div> <div class="symbol"><b>Ga</b></div> <div class="num_of_ele"><small>31</small></div></div>
-	<div class="dark_green"> <div class="dr"><small>72.630</small></div> <div class="symbol"><b>Ge</b></div> <div class="num_of_ele"><small>32</small></div></div>
-	<div class="dark_green"> <div class="dr"><small>74.922</small></div> <div class="symbol"><b>As</b></div> <div class="num_of_ele"><small>33</small></div></div>
-	<div class="green"> <div class="dr"><small>78.971</small></div> <div class="symbol"><b>Se</b></div> <div class="num_of_ele"><small>34</small></div></div>
-	<div class="green"> <div class="dr"><small>79.904</small></div> <div class="symbol"><b>Br</b></div> <div class="num_of_ele"><small>35</small></div></div>
-	<div class="blue"> <div class="dr"><small>83.798</small></div> <div class="symbol"><b>Kr</b></div> <div class="num_of_ele"><small>36</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>39.098</small></div> <div class="symbol"><b>K</b></div> <div class="num_of_ele"><small>19</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>40.078</small></div> <div class="symbol"><b>Ca</b></div> <div class="num_of_ele"><small>20</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>44.956</small></div> <div class="symbol"><b>Sc</b></div> <div class="num_of_ele"><small>21</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>47.867</small></div> <div class="symbol"><b>Ti</b></div> <div class="num_of_ele"><small>22</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>50.942</small></div> <div class="symbol"><b>V</b></div> <div class="num_of_ele"><small>23</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>51.966</small></div> <div class="symbol"><b>Cr</b></div> <div class="num_of_ele"><small>24</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>54.938</small></div> <div class="symbol"><b>Mn</b></div> <div class="num_of_ele"> <small>25</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>55.845</small></div> <div class="symbol"><b>Fe</b></div> <div class="num_of_ele"><small>26</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>58.933</small></div> <div class="symbol"><b>Co</b></div> <div class="num_of_ele"><small>27</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>58.693</small></div> <div class="symbol"><b>Ni</b></div> <div class="num_of_ele"><small>28</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>63.546</small></div> <div class="symbol"><b>Cu</b></div> <div class="num_of_ele"><small>29</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>65.38</small></div>  <div class="symbol"><b>Zn</b></div> <div class="num_of_ele"><small>30</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>69.723</small></div> <div class="symbol"><b>Ga</b></div> <div class="num_of_ele"><small>31</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>72.630</small></div> <div class="symbol"><b>Ge</b></div> <div class="num_of_ele"><small>32</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>74.922</small></div> <div class="symbol"><b>As</b></div> <div class="num_of_ele"><small>33</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>78.971</small></div> <div class="symbol"><b>Se</b></div> <div class="num_of_ele"><small>34</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>79.904</small></div> <div class="symbol"><b>Br</b></div> <div class="num_of_ele"><small>35</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>83.798</small></div> <div class="symbol"><b>Kr</b></div> <div class="num_of_ele"><small>36</small></div></div>
 </div>
 
 
 <!--row 5 -->
 <div class="container">
-	<div class="orange"> <div class="dr"><small>85.468</small></div> <div class="symbol"><b>Rb</b></div> <div class="num_of_ele"><small>37</small></div></div>
-	<div class="yellow"> <div class="dr"><small>87.62</small></div> <div class="symbol"><b>Sr</b></div> <div class="num_of_ele"><small>38</small></div> </div>
-	<div class="pink"> <div class="dr"><small>88.906</small></div> <div class="symbol"><b>Y</b></div> <div class="num_of_ele"><small>39</small></div> </div>
-	<div class="pink"> <div class="dr"><small>91.224</small></div>  <div class="symbol"><b>Zr</b></div> <div class="num_of_ele"><small>40</small></div></div>
-	<div class="pink"> <div class="dr"><small>92.906</small></div> <div class="symbol"><b>Nb</b></div> <div class="num_of_ele"><small>41</small></div> </div>
-	<div class="pink"> <div class="dr"><small>95.95</small></div>   <div class="symbol"><b>Mo</b></div> <div class="num_of_ele"><small>42</small></div> </div>
-	<div class="pink"> <div class="dr"><small>98</small></div> <div class="symbol"><b>Tc</b></div> <div class="num_of_ele"><small>43</small></div> </div>
-	<div class="pink"> <div class="dr"><small>101.07</small></div> <div class="symbol"><b>Ru</b></div> <div class="num_of_ele"> <small>44</small></div> </div>
-	<div class="pink"> <div class="dr"><small>102.91</small></div> <div class="symbol"><b>Rh</b></div> <div class="num_of_ele"> <small>45</small></div></div>
-	<div class="pink"> <div class="dr"><small>106.42</small></div> <div class="symbol"><b>Pd</b></div> <div class="num_of_ele"><small>46</small></div></div>
-	<div class="pink"> <div class="dr"><small>107.87</small></div> <div class="symbol"><b>Ag</b></div> <div class="num_of_ele"><small>47</small></div> </div>
-	<div class="pink"> <div class="dr"><small>112.41</small></div> <div class="symbol"><b>Cd</b></div> <div class="num_of_ele"> <small>48</small></div> </div>
-	<div class="lime_green"> <div class="dr"><small>114.82</small></div> <div class="symbol"><b>In</b></div> <div class="num_of_ele"> <small>49</small> </div></div>
-	<div class="lime_green"> <div class="dr"><small>118.71</small></div> <div class="symbol"><b>Sn</b></div> <div class="num_of_ele"> <small>50</small></div> </div>
-	<div class="dark_green"> <div class="dr"><small>121.76</small></div> <div class="symbol"><b>Sb</b></div> <div class="num_of_ele"> <small>51</small></div></div>
-	<div class="dark_green"> <div class="dr"><small>127.60</small></div>  <div class="symbol"><b>Te</b></div> <div class="num_of_ele"><small>52</small></div> </div>
-	<div class="green"> <div class="dr"><small>126.90</small></div> <div class="symbol"><b>I</b></div> <div class="num_of_ele"><small>53</small></div> </div>
-	<div class="blue"> <div class="dr"><small>131.29</small></div> <div class="symbol"><b>Xe</b></div> <div class="num_of_ele"><small>54</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>85.468</small></div> <div class="symbol"><b>Rb</b></div> <div class="num_of_ele"><small>37</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>87.62</small></div> <div class="symbol"><b>Sr</b></div> <div class="num_of_ele"><small>38</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>88.906</small></div> <div class="symbol"><b>Y</b></div> <div class="num_of_ele"><small>39</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>91.224</small></div>  <div class="symbol"><b>Zr</b></div> <div class="num_of_ele"><small>40</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>92.906</small></div> <div class="symbol"><b>Nb</b></div> <div class="num_of_ele"><small>41</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>95.95</small></div>   <div class="symbol"><b>Mo</b></div> <div class="num_of_ele"><small>42</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>98</small></div> <div class="symbol"><b>Tc</b></div> <div class="num_of_ele"><small>43</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>101.07</small></div> <div class="symbol"><b>Ru</b></div> <div class="num_of_ele"> <small>44</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>102.91</small></div> <div class="symbol"><b>Rh</b></div> <div class="num_of_ele"> <small>45</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>106.42</small></div> <div class="symbol"><b>Pd</b></div> <div class="num_of_ele"><small>46</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>107.87</small></div> <div class="symbol"><b>Ag</b></div> <div class="num_of_ele"><small>47</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>112.41</small></div> <div class="symbol"><b>Cd</b></div> <div class="num_of_ele"> <small>48</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>114.82</small></div> <div class="symbol"><b>In</b></div> <div class="num_of_ele"> <small>49</small> </div></div>
+	<div class="lightgrey"> <div class="dr"><small>118.71</small></div> <div class="symbol"><b>Sn</b></div> <div class="num_of_ele"> <small>50</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>121.76</small></div> <div class="symbol"><b>Sb</b></div> <div class="num_of_ele"> <small>51</small></div></div>
+	<div class="lightgrey"> <div class="dr"><small>127.60</small></div>  <div class="symbol"><b>Te</b></div> <div class="num_of_ele"><small>52</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>126.90</small></div> <div class="symbol"><b>I</b></div> <div class="num_of_ele"><small>53</small></div> </div>
+	<div class="lightgrey"> <div class="dr"><small>131.29</small></div> <div class="symbol"><b>Xe</b></div> <div class="num_of_ele"><small>54</small></div></div>
 </div>
 
 
 <!--row 6-->
 <div class="container">
-	<div class="orange">  <div class="dr"><small>132.91</small></div> <div class="symbol"><b>Cs</b></div> <div class="num_of_ele"><small>55</small></div></div>
-	<div class="yellow">  <div class="dr"><small>127.33</small></div> <div class="symbol"><b>Ba</b></div> <div class="num_of_ele"><small>56</small></div></div>
-	<div class="dark_orange">  <div class="dr"><small></small></div>  <div class="symbol"><b><center>57-71</center></b></div> <div class="num_of_ele"><small></small></div></div>
-	<div class="pink">  <div class="dr"><small>178.49</small></div> <div class="symbol"><b>Hf</b></div> <div class="num_of_ele"><small>72</small></div></div>
-	<div class="pink">  <div class="dr"><small>180.95</small></div> <div class="symbol"><b>Ta</b></div> <div class="num_of_ele"><small>73</small></div></div>
-	<div class="pink">  <div class="dr"><small>183.84</small></div> <div class="symbol"><b>W</b></div> <div class="num_of_ele"><small>74</small></div> </div>
-	<div class="pink">  <div class="dr"><small>186.21</small></div>  <div class="symbol"><b>Re</b></div> <div class="num_of_ele"><small>75</small></div></div>
-	<div class="pink">  <div class="dr"><small>190.23</small></div> <div class="symbol"><b>Os</b></div> <div class="num_of_ele"><small>76</small></div></div>
-	<div class="pink">  <div class="dr"><small>192.22</small></div> <div class="symbol"><b>Ir</b></div> <div class="num_of_ele"><small>77</small></div> </div>
-	<div class="pink">  <div class="dr"><small>195.08</small></div>   <div class="symbol"><b>Pt</b></div> <div class="num_of_ele"><small>78</small></div> </div>
-	<div class="pink">  <div class="dr"><small>196.97</small></div>   <div class="symbol"><b>Au</b></div> <div class="num_of_ele"><small>79</small></div> </div>
-	<div class="pink">  <div class="dr"><small>200.59</small></div>   <div class="symbol"><b>Hg</b></div> <div class="num_of_ele"><small>80</small></div> </div>
-	<div class="lime_green">  <div class="dr"><small>204.38</small></div>   <div class="symbol"><b>Tl</b></div> <div class="num_of_ele"><small>81</small></div> </div>
-	<div class="lime_green">  <div class="dr"><small>207.2</small></div>   <div class="symbol"><b>Pb</b> </div> <div class="num_of_ele"><small>82</small></div> </div>
-	<div class="lime_green">  <div class="dr"><small>208.98</small></div>   <div class="symbol"><b>Bi</b></div> <div class="num_of_ele"><small>83</small></div> </div>
-	<div class="lime_green">  <div class="dr"><small>209</small></div>   <div class="symbol"><b>Po</b></div> <div class="num_of_ele"><small>84</small></div> </div>
-	<div class="green">  <div class="dr"><small>210</small></div>   <div class="symbol"><b>At</b></div> <div class="num_of_ele"><small>85</small></div> </div>
-	<div class="blue">  <div class="dr"><small>222</small></div>   <div class="symbol"><b>Rn</b></div> <div class="num_of_ele"><small>65</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>132.91</small></div> <div class="symbol"><b>Cs</b></div> <div class="num_of_ele"><small>55</small></div></div>
+	<div class="lightgrey">  <div class="dr"><small>127.33</small></div> <div class="symbol"><b>Ba</b></div> <div class="num_of_ele"><small>56</small></div></div>
+	<div class="lightgrey">  <div class="dr"><small></small></div>  <div class="symbol"><b><center>57-71</center></b></div> <div class="num_of_ele"><small></small></div></div>
+	<div class="lightgrey">  <div class="dr"><small>178.49</small></div> <div class="symbol"><b>Hf</b></div> <div class="num_of_ele"><small>72</small></div></div>
+	<div class="lightgrey">  <div class="dr"><small>180.95</small></div> <div class="symbol"><b>Ta</b></div> <div class="num_of_ele"><small>73</small></div></div>
+	<div class="lightgrey">  <div class="dr"><small>183.84</small></div> <div class="symbol"><b>W</b></div> <div class="num_of_ele"><small>74</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>186.21</small></div>  <div class="symbol"><b>Re</b></div> <div class="num_of_ele"><small>75</small></div></div>
+	<div class="lightgrey">  <div class="dr"><small>190.23</small></div> <div class="symbol"><b>Os</b></div> <div class="num_of_ele"><small>76</small></div></div>
+	<div class="lightgrey">  <div class="dr"><small>192.22</small></div> <div class="symbol"><b>Ir</b></div> <div class="num_of_ele"><small>77</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>195.08</small></div>   <div class="symbol"><b>Pt</b></div> <div class="num_of_ele"><small>78</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>196.97</small></div>   <div class="symbol"><b>Au</b></div> <div class="num_of_ele"><small>79</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>200.59</small></div>   <div class="symbol"><b>Hg</b></div> <div class="num_of_ele"><small>80</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>204.38</small></div>   <div class="symbol"><b>Tl</b></div> <div class="num_of_ele"><small>81</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>207.2</small></div>   <div class="symbol"><b>Pb</b> </div> <div class="num_of_ele"><small>82</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>208.98</small></div>   <div class="symbol"><b>Bi</b></div> <div class="num_of_ele"><small>83</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>209</small></div>   <div class="symbol"><b>Po</b></div> <div class="num_of_ele"><small>84</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>210</small></div>   <div class="symbol"><b>At</b></div> <div class="num_of_ele"><small>85</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>222</small></div>   <div class="symbol"><b>Rn</b></div> <div class="num_of_ele"><small>65</small></div> </div>
 </div>
 
 
 <!--row 7-->
 <div class="container">
-	<div class="orange">  <div class="dr"><small>223</small></div>   <div class="symbol"><b>Fr</b></div> <div class="num_of_ele"><small>87</small></div> </div>
-	<div class="yellow">  <div class="dr"><small>226</small></div>   <div class="symbol"><b>Ra</b></div> <div class="num_of_ele"><small>88</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small></small></div>   <div class="symbol"><b><center>89-103</center></b></div> <div class="num_of_ele"><small></small></div> </div>
-	<div class="pink">  <div class="dr"><small>267</small></div>   <div class="symbol"><b>Rf</b></div> <div class="num_of_ele"><small>104</small></div> </div>
-	<div class="pink">  <div class="dr"><small>268</small></div>   <div class="symbol"><b>Db</b></div> <div class="num_of_ele"><small>105</small></div> </div>
-	<div class="pink">  <div class="dr"><small>269</small></div>   <div class="symbol"><b>Sg</b></div> <div class="num_of_ele"><small>106</small></div> </div>
-	<div class="pink">  <div class="dr"><small>270</small></div>   <div class="symbol"><b>Bh</b></div> <div class="num_of_ele"><small>107</small></div> </div>
-	<div class="pink">  <div class="dr"><small>277</small></div>   <div class="symbol"><b>Hs</b></div> <div class="num_of_ele"><small>108</small></div> </div>
-	<div class="red">  <div class="dr"><small>278</small></div>   <div class="symbol"><b>Mt</b></div> <div class="num_of_ele"><small>109</small></div> </div>
-	<div class="red">  <div class="dr"><small>281</small></div>   <div class="symbol"><b>Ds</b></div> <div class="num_of_ele"><small>110</small></div> </div>
-	<div class="red">  <div class="dr"><small>282</small></div>   <div class="symbol"><b>Rg</b></div> <div class="num_of_ele"><small>111</small></div> </div>
-	<div class="pink">  <div class="dr"><small>285</small></div>   <div class="symbol"><b>Cn</b></div> <div class="num_of_ele"><small>112</small></div> </div>
-	<div class="red">  <div class="dr"><small>286</small></div>   <div class="symbol"><b>Nh</b></div> <div class="num_of_ele"><small>113</small></div> </div>
-	<div class="lime_green">  <div class="dr"><small>289</small></div>   <div class="symbol"><b>Fl</b> </div> <div class="num_of_ele"><small>114</small> </div></div>
-	<div class="red">  <div class="dr"><small>290</small></div>   <div class="symbol"><b>Mc</b></div> <div class="num_of_ele"><small>115</small></div> </div>
-	<div class="red">  <div class="dr"><small>293</small></div>   <div class="symbol"><b>Lv</b></div> <div class="num_of_ele"><small>116</small></div> </div>
-	<div class="red">  <div class="dr"><small>294</small></div>   <div class="symbol"><b>Ts</b></div> <div class="num_of_ele"><small>117</small></div></div>
-	<div class="red">  <div class="dr"><small>294</small></div>   <div class="symbol"><b>Og</b></div> <div class="num_of_ele"><small>118</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>223</small></div>   <div class="symbol"><b>Fr</b></div> <div class="num_of_ele"><small>87</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>226</small></div>   <div class="symbol"><b>Ra</b></div> <div class="num_of_ele"><small>88</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small></small></div>   <div class="symbol"><b><center>89-103</center></b></div> <div class="num_of_ele"><small></small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>267</small></div>   <div class="symbol"><b>Rf</b></div> <div class="num_of_ele"><small>104</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>268</small></div>   <div class="symbol"><b>Db</b></div> <div class="num_of_ele"><small>105</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>269</small></div>   <div class="symbol"><b>Sg</b></div> <div class="num_of_ele"><small>106</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>270</small></div>   <div class="symbol"><b>Bh</b></div> <div class="num_of_ele"><small>107</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>277</small></div>   <div class="symbol"><b>Hs</b></div> <div class="num_of_ele"><small>108</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>278</small></div>   <div class="symbol"><b>Mt</b></div> <div class="num_of_ele"><small>109</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>281</small></div>   <div class="symbol"><b>Ds</b></div> <div class="num_of_ele"><small>110</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>282</small></div>   <div class="symbol"><b>Rg</b></div> <div class="num_of_ele"><small>111</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>285</small></div>   <div class="symbol"><b>Cn</b></div> <div class="num_of_ele"><small>112</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>286</small></div>   <div class="symbol"><b>Nh</b></div> <div class="num_of_ele"><small>113</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>289</small></div>   <div class="symbol"><b>Fl</b> </div> <div class="num_of_ele"><small>114</small> </div></div>
+	<div class="lightgrey">  <div class="dr"><small>290</small></div>   <div class="symbol"><b>Mc</b></div> <div class="num_of_ele"><small>115</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>293</small></div>   <div class="symbol"><b>Lv</b></div> <div class="num_of_ele"><small>116</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>294</small></div>   <div class="symbol"><b>Ts</b></div> <div class="num_of_ele"><small>117</small></div></div>
+	<div class="lightgrey">  <div class="dr"><small>294</small></div>   <div class="symbol"><b>Og</b></div> <div class="num_of_ele"><small>118</small></div> </div>
 </div>
 
 
@@ -340,21 +277,21 @@ p.gone{
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
-	<div class="dark_orange">  <div class="dr"><small>138.91</small></div>   <div class="symbol"><b>La</b></div> <div class="num_of_ele"><small>57</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>140.12</small></div>   <div class="symbol"><b>Ce</b></div> <div class="num_of_ele"><small>58</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>140.91</small></div>   <div class="symbol"><b>Pr</b></div> <div class="num_of_ele"><small>59</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>144.24</small></div>   <div class="symbol"><b>Nd</b></div> <div class="num_of_ele"><small>60</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>145</small></div>   <div class="symbol"><b>Pm</b></div> <div class="num_of_ele"><small>61</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>150.36</small></div>   <div class="symbol"><b>Sm</b></div> <div class="num_of_ele"><small>62</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>151.96</small></div>   <div class="symbol"><b>Eu</b></div> <div class="num_of_ele"><small>63</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>157.25</small></div>   <div class="symbol"><b>Gd</b></div> <div class="num_of_ele"><small>64</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>158.93</small></div>   <div class="symbol"><b>Tb</b></div> <div class="num_of_ele"><small>65</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>162.50</small></div>   <div class="symbol"><b>Dy</b></div> <div class="num_of_ele"><small>66</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>164.93</small></div>   <div class="symbol"><b>Ho</b></div> <div class="num_of_ele"><small>67</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>167.26</small></div>   <div class="symbol"><b>Er</b></div> <div class="num_of_ele"><small>68</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>168.93</small></div>   <div class="symbol"><b>Tm</b></div> <div class="num_of_ele"><small>69</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>173.05</small></div>   <div class="symbol"><b>Yb</b></div> <div class="num_of_ele"><small>70</small></div> </div>
-	<div class="dark_orange">  <div class="dr"><small>174.97</small></div>   <div class="symbol"><b>Lu</b></div> <div class="num_of_ele"><small>71</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>138.91</small></div>   <div class="symbol"><b>La</b></div> <div class="num_of_ele"><small>57</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>140.12</small></div>   <div class="symbol"><b>Ce</b></div> <div class="num_of_ele"><small>58</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>140.91</small></div>   <div class="symbol"><b>Pr</b></div> <div class="num_of_ele"><small>59</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>144.24</small></div>   <div class="symbol"><b>Nd</b></div> <div class="num_of_ele"><small>60</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>145</small></div>   <div class="symbol"><b>Pm</b></div> <div class="num_of_ele"><small>61</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>150.36</small></div>   <div class="symbol"><b>Sm</b></div> <div class="num_of_ele"><small>62</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>151.96</small></div>   <div class="symbol"><b>Eu</b></div> <div class="num_of_ele"><small>63</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>157.25</small></div>   <div class="symbol"><b>Gd</b></div> <div class="num_of_ele"><small>64</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>158.93</small></div>   <div class="symbol"><b>Tb</b></div> <div class="num_of_ele"><small>65</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>162.50</small></div>   <div class="symbol"><b>Dy</b></div> <div class="num_of_ele"><small>66</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>164.93</small></div>   <div class="symbol"><b>Ho</b></div> <div class="num_of_ele"><small>67</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>167.26</small></div>   <div class="symbol"><b>Er</b></div> <div class="num_of_ele"><small>68</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>168.93</small></div>   <div class="symbol"><b>Tm</b></div> <div class="num_of_ele"><small>69</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>173.05</small></div>   <div class="symbol"><b>Yb</b></div> <div class="num_of_ele"><small>70</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>174.97</small></div>   <div class="symbol"><b>Lu</b></div> <div class="num_of_ele"><small>71</small></div> </div>
 </div>
 
 
@@ -363,22 +300,30 @@ p.gone{
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
 	<div class="invis"><div class="dr"><small>1</small></div> <br> <div class="symbol"><b>DE</b></div> <div class="num_of_ele"><small>1.008</small></div></div>
-	<div class="dark_red">  <div class="dr"><small>227</small></div>   <div class="symbol"><b>Ac</b></div> <div class="num_of_ele"><small>89</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>232.04</small></div>   <div class="symbol"><b>Th</b></div> <div class="num_of_ele"><small>90</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>231.04</small></div>   <div class="symbol"><b>Pa</b></div> <div class="num_of_ele"><small>91</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>238.03</small></div>   <div class="symbol"><b>U</b></div> <div class="num_of_ele"><small>92</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>237</small></div>   <div class="symbol"><b>Np</b></div> <div class="num_of_ele"><small>93</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>244</small></div>   <div class="symbol"><b>Pu</b></div> <div class="num_of_ele"><small>94</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>243</small></div>   <div class="symbol"><b>Am</b></div> <div class="num_of_ele"><small>95</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>247</small></div>   <div class="symbol"><b>Cm</b></div> <div class="num_of_ele"><small>96</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>247</small></div>   <div class="symbol"><b>Bk</b></div> <div class="num_of_ele"><small>97</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>251</small></div>   <div class="symbol"><b>Cf</b></div> <div class="num_of_ele"><small>98</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>252</small></div>   <div class="symbol"><b>Es</b></div> <div class="num_of_ele"><small>99</small> </div></div>
-	<div class="dark_red">  <div class="dr"><small>257</small></div>   <div class="symbol"><b>Fm</b></div> <div class="num_of_ele"><small>100</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>258</small></div>   <div class="symbol"><b>Md</b></div> <div class="num_of_ele"><small>101</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>259</small></div>   <div class="symbol"><b>No</b></div> <div class="num_of_ele"><small>102</small></div> </div>
-	<div class="dark_red">  <div class="dr"><small>266</small></div>   <div class="symbol"><b>Lr</b></div> <div class="num_of_ele"><small>102</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>227</small></div>   <div class="symbol"><b>Ac</b></div> <div class="num_of_ele"><small>89</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>232.04</small></div>   <div class="symbol"><b>Th</b></div> <div class="num_of_ele"><small>90</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>231.04</small></div>   <div class="symbol"><b>Pa</b></div> <div class="num_of_ele"><small>91</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>238.03</small></div>   <div class="symbol"><b>U</b></div> <div class="num_of_ele"><small>92</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>237</small></div>   <div class="symbol"><b>Np</b></div> <div class="num_of_ele"><small>93</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>244</small></div>   <div class="symbol"><b>Pu</b></div> <div class="num_of_ele"><small>94</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>243</small></div>   <div class="symbol"><b>Am</b></div> <div class="num_of_ele"><small>95</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>247</small></div>   <div class="symbol"><b>Cm</b></div> <div class="num_of_ele"><small>96</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>247</small></div>   <div class="symbol"><b>Bk</b></div> <div class="num_of_ele"><small>97</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>251</small></div>   <div class="symbol"><b>Cf</b></div> <div class="num_of_ele"><small>98</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>252</small></div>   <div class="symbol"><b>Es</b></div> <div class="num_of_ele"><small>99</small> </div></div>
+	<div class="lightgrey">  <div class="dr"><small>257</small></div>   <div class="symbol"><b>Fm</b></div> <div class="num_of_ele"><small>100</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>258</small></div>   <div class="symbol"><b>Md</b></div> <div class="num_of_ele"><small>101</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>259</small></div>   <div class="symbol"><b>No</b></div> <div class="num_of_ele"><small>102</small></div> </div>
+	<div class="lightgrey">  <div class="dr"><small>266</small></div>   <div class="symbol"><b>Lr</b></div> <div class="num_of_ele"><small>102</small></div> </div>
 </div>
+	<input id="insertElement" onkeypress="checkElement(event)"></input>
 
+	<h1>Statystyki gry</h1>
+    <div id="correctAnswer">Poprawnych odpowiedzi: 0</div>
+    <div id="incorrectAnswer">Błędnych odpowiedzi: 0</div>
+    <button id="reset" type="button">Zresetuj statystyki</button>
+
+	<script src="/js/pierwiastki.js"></script>
+	<script src="/js/app.js"></script>
 </body>
 </html>
