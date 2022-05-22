@@ -1,61 +1,57 @@
-function checkElement(event){
-    if(event.keyCode == 13){
-        //console.log(event.target.value)
-        if(event.target.value == pierwiastki[random][1]){
-            pierwiastek[random].parentElement.classList.remove("checker")
-            pierwiastek[random].parentElement.classList.add("lightgreen")
-            correctAnswer+=1;
+var repeatElements = [];
+//definciuje tablicę powtórzonych elementów
+container = document.getElementsByClassName("symbol");
+//container przyjmuje klasę "symbol"
+elementsSymbol = [];
+//definiuje tablicę symboli elementów
+y = 0;
+for (x = 0; x < container.length; x++) {
+    if (container[x].textContent != 'DE' && container[x].textContent != 'DEL' && container[x].textContent != '57-71' && container[x].textContent != '89-103') {
+        //wyklucza z symboli pola puste i z liczbami
+        elementsSymbol[y] = container[x];
+        // przypisuje właściwe liczb z pierwiastków do containerów
+        console.log(y + "-" + elementsSymbol[y].textContent);
+        y++;
+        //co każdą pętlę dodaje do containera 1 aż osiągnie liczbę z y
+    }
+}
+game();
+
+
+function game() {
+    console.log(repeatElements);
+    if (repeatElements.length >= elements.length) {
+        /*gdy liczba elementów tablicy z powtórzonymi pierwiastkami jest równa 0 lub większa
+         od ilości pierwiastków następuje koniec gry*/
+        console.log("koniec gry");
+    } else {
+        randomElement = Math.floor(Math.random() * elements.length);
+        //generuje losową liczbę (generowanie odbywa się od 0 do 117, numery pierwiastków)
+        if (repeatElements.includes(randomElement)) {
+            // jeśli wylosowana liczba jest w tablicy powtórzonych, wykonaj funkcję game jeszcze raz  
+            game();
+        } else {
+            elementsSymbol[randomElement].parentElement.classList.add("checker");
+            // kolor wylosowanegoo pierwiatska zostaje zmieniony z szarego na różowy
+            repeatElements.push(randomElement)
+                // powtórzone pierwiastki dodaje do tablicy z powtórzonymi pierwiastkami
         }
-        else{
-            pierwiastek[random].parentElement.classList.remove("checker")
-            pierwiastek[random].parentElement.classList.add("lightred")
-            incorrectAnswer+=1
-        }
-        game()
     }
 }
 
-correctAnswer = 0;
-incorrectAnswer = 0;
-
-  container = document.getElementsByClassName("symbol");
-  repeatElements = [];
-  game();
-  //console.log(container);
-  pierwiastek = [];
-  y = 0;
-  for (x = 0; x < container.length; x++ ){
-     // console.log(container[x].innerHTML);
-      if (container[x].textContent != 'DE' && container[x].textContent != 'DEL' && container[x].textContent != '57-71' && container[x].textContent != '89-103') {
-
-          pierwiastek[y] = container[x];
-          console.log(y+": "+pierwiastki[y])
-          y++;
-      }
-  }
-  for (x = 0; x < pierwiastek.length; x++ ){
-    //  console.log("x:"+ x,pierwiastek[x].textContent);
-   
-  }
-
-  document.addEventListener("click", getSymbol);
-  function getSymbol(e) {
-    //  console.log(e.target);
-  }
-  
-function game(){
-    random = Math.floor(Math.random() * pierwiastki.length);
-    console.log("Wylosowany pierwiastek: "+pierwiastki[random]);
-    if(pierwiastki[random][0] != repeatElements){
-        for (x = 0; x < container.length; x++ ){
-            if (container[x].textContent == pierwiastki[random][0]){
-                container[x].parentElement.classList.add("checker")
-            }
+function checkElement(event) {
+    if (event.keyCode == 13) {
+        //wciśnięcie "enter" (eneter ma keyCode 13)
+        if (event.target.value == elements[randomElement][1]) {
+            elementsSymbol[randomElement].parentElement.classList.remove("checker");
+            elementsSymbol[randomElement].parentElement.classList.add("goodAnswer");
+            // usuwa kolor z "checked"(szary), a zamiast tego dodaje z "goodAnswer"(zielony)
+        } else {
+            elementsSymbol[randomElement].parentElement.classList.remove("checker");
+            elementsSymbol[randomElement].parentElement.classList.add("badAnswer");
+            // usuwa kolor z "checked" (szary), a zamiast tego dodaje z "badAnswer"(czerwony)
         }
-        repeatElements.push(random);
-        console.log(repeatElements);
-    }
-    else{
+        event.target.value = "";
         game();
     }
 }
