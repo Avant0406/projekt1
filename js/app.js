@@ -29,7 +29,7 @@ function game() {
     if (repeatElements.length >= elements.length) {
         /*gdy liczba elementów tablicy z powtórzonymi pierwiastkami jest równa 0 lub większa
          od ilości pierwiastków następuje koniec gry*/
-        clearInterval(x);
+        clearInterval(myTimer);
         document.getElementById("timer").innerHTML = "Koniec gry!";
         reset.disabled = false;
     } else {
@@ -49,30 +49,27 @@ function game() {
 
 function checkElement(event) {
     if (event.keyCode == 13) {
-        if (goodAnswer+badAnswer < 118) {
-            if (event.target.value == elements[randomElement][1]) {
-                elementsSymbol[randomElement].parentElement.classList.remove("checker");
-                elementsSymbol[randomElement].parentElement.classList.add("goodAnswer");
-                // usuwa kolor z "checked"(szary), a zamiast tego dodaje z "goodAnswer"(zielony)
+        if (event.target.value == elements[randomElement][1]) {
+            elementsSymbol[randomElement].parentElement.classList.remove("checker");
+            elementsSymbol[randomElement].parentElement.classList.add("goodAnswer");
+            // usuwa kolor z "checked"(szary), a zamiast tego dodaje z "goodAnswer"(zielony)
             
-                goodAnswer+=1;
-                getGoodAnswer("Poprawnych odpowiedzi: "+goodAnswer);
-                countDownDate = new Date().getTime() + (10000);
+            goodAnswer+=1;
+            getGoodAnswer("Poprawnych odpowiedzi: "+goodAnswer);
 
-            } else {
-                elementsSymbol[randomElement].parentElement.classList.remove("checker");
-                elementsSymbol[randomElement].parentElement.classList.add("badAnswer");
-                // usuwa kolor z "checked" (szary), a zamiast tego dodaje z "badAnswer"(czerwony)
+        } else {
+            elementsSymbol[randomElement].parentElement.classList.remove("checker");
+            elementsSymbol[randomElement].parentElement.classList.add("badAnswer");
+            // usuwa kolor z "checked" (szary), a zamiast tego dodaje z "badAnswer"(czerwony)
             
-                badAnswer+=1;
-                getBadAnswer("Błędnych odpowiedzi: "+badAnswer);
-                countDownDate = new Date().getTime() + (10000);
-            }
-            event.target.value = "";
-            game();
+            badAnswer+=1;
+            getBadAnswer("Błędnych odpowiedzi: "+badAnswer);
         }
+        event.target.value = "";
+        game();
     }
 }
+
 
 function getGoodAnswer(i){
     document.getElementById("goodAnswer").innerHTML = i;
@@ -96,6 +93,7 @@ function resetStatistics(){
             y++;
         }
     }
+    myInput.disabled = false;
     reset.disabled = true;
     setInterval(time, 1000);
     countDownDate = new Date().getTime() + (10000);
@@ -106,7 +104,7 @@ function resetStatistics(){
 var countDownDate = new Date().getTime() + (10000);
 
 // Update the count down every 1 second
-var x = setInterval(time, 1000);
+var myTimer = setInterval(time, 1000);
 
 function time() {
 
@@ -124,14 +122,15 @@ function time() {
   document.getElementById("timer").innerHTML =  minutes + " min. " + seconds + " sek. ";
     
   // If the count down is over, write some text 
-  if (distance <= 1000) {
+  if (distance <= 0) {
     // clearInterval(x);
+    clearInterval(myTimer);
     elementsSymbol[randomElement].parentElement.classList.remove("checker");
-    elementsSymbol[randomElement].parentElement.classList.add("badAnswer");
-    badAnswer+=1;
+    document.getElementById("timer").innerHTML = "Koniec gry!";
+    //badAnswer+=1;
     getBadAnswer("Błędnych odpowiedzi: "+badAnswer);
-    countDownDate = new Date().getTime() + (10000);
-    game();
+    myInput.disabled = true;
+    reset.disabled = false;
     
    
   }
