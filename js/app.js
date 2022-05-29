@@ -2,9 +2,10 @@ var repeatElements = [];
 //definciuje tablicę powtórzonych elementów
 //goodAnswer = 0;
 //badAnswer = 0;
-
+var timerTime = 100000 ;
 check = false;
 var timeRemaining = 0 ;
+var timeRemaining_2 = 0;
 reset = document.getElementById("reset");
 reset.addEventListener("click", resetStatistics);
 
@@ -51,6 +52,15 @@ function game() {
 
 function checkElement(event) {
     if (event.keyCode == 13) {
+        if (timeRemaining != 0){
+           
+         
+            countDownDate = new Date().getTime() + (timerTime) - timeRemaining ;
+            console.log(countDownDate);
+            console.log(new Date().getTime() );
+            myTimer = setInterval(time, 1000);
+        
+        }
         if (event.target.value == elements[randomElement][1]) {
             elementsSymbol[randomElement].parentElement.classList.remove("checker");
             elementsSymbol[randomElement].parentElement.classList.add("goodAnswer");
@@ -67,11 +77,7 @@ function checkElement(event) {
             //badAnswer+=1;
             //getBadAnswer("Błędnych odpowiedzi: "+badAnswer);
         }
-        if (timeRemaining != 0){
-            countDownDate = timeRemaining ;
-            myTimer = setInterval(time, 1000);
-            timeRemaining = 0 ;
-        }
+      
         event.target.value = "";
         game();
     }
@@ -103,12 +109,12 @@ function resetStatistics(){
     myInput.disabled = false;
     reset.disabled = true;
     setInterval(time, 1000);
-    countDownDate = new Date().getTime() + (10000);
+    countDownDate = new Date().getTime() + timerTime;
     game();
 }
 
   // Set the date we're counting down to
-var countDownDate = new Date().getTime() + (10000);
+var countDownDate = new Date().getTime() + timerTime;
 
 // Update the count down every 1 second
 var myTimer = setInterval(time, 1000);
@@ -125,8 +131,8 @@ function time() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+  timeRemaining_2=distance;
 
-    
   // Output the result in an element with id="demo"
   document.getElementById("timer").innerHTML =  minutes + " min. " + seconds + " sek. ";
     
@@ -182,13 +188,15 @@ function rewardFunction(e){
 
     }
     if(e.target.id == "img_2"){
-        timeRemaining = countDownDate ;
+        now = new Date().getTime() + timerTime;
+        timeRemaining = now - countDownDate ;
+        console.log(timeRemaining);
         clearInterval(myTimer);
 
 
 
     }
     if(e.target.id == "img_3"){
-        countDownDate = new Date().getTime() + (timeRemaining) + (15000);
+        countDownDate = new Date().getTime() + (timeRemaining_2) + (15000);
     }
 }
