@@ -142,13 +142,14 @@ p.gone {
     background: transparent;
     font-weight: bold;
     cursor: pointer;
-    width: 150px;
-    color: orange;
+    width: 170px;
+    color: yellow;
     height: 40px;
     margin-top: 5px;
     border-radius: 15px;
-    border: 2px solid orange;
+    border: 3px solid yellow;
     transition-duration: 0.4s;
+    text-transform: uppercase;
 }
 
 .disabled {
@@ -156,8 +157,9 @@ p.gone {
 }
 
 #reset:hover {
-    background-color: orange;
+    background-color: yellow;
     color: white;
+    text-shadow: 0px 0px 5px black;
 }
 
 #goodAnswer {
@@ -180,7 +182,8 @@ img {vertical-align: middle;}
 /* Slideshow container */
 .slideshow-container {
   background-color: rgb(45, 45, 45);
-  padding: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 300px;
   position: relative;
   margin: auto;

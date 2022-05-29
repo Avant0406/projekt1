@@ -3,7 +3,6 @@ var repeatElements = [];
 //goodAnswer = 0;
 //badAnswer = 0;
 var timerTime = 100000 ;
-check = false;
 var timeRemaining = 0 ;
 var timeRemaining_2 = 0;
 reset = document.getElementById("reset");
@@ -185,16 +184,15 @@ img_3.addEventListener("click",rewardFunction);
 function rewardFunction(e){
     console.log(e.target.id); 
     if(e.target.id == "img_1"){
-
+        elementsSymbol[randomElement].parentElement.classList.remove("checker");
+        elementsSymbol[randomElement].parentElement.classList.add("goodAnswer");
+        game();
     }
     if(e.target.id == "img_2"){
         now = new Date().getTime() + timerTime;
         timeRemaining = now - countDownDate ;
         console.log(timeRemaining);
         clearInterval(myTimer);
-
-
-
     }
     if(e.target.id == "img_3"){
         countDownDate = new Date().getTime() + (timeRemaining_2) + (15000);
