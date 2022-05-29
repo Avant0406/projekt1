@@ -5,10 +5,13 @@ var repeatElements = [];
 var timerTime = 100000 ;
 var timeRemaining = 0 ;
 var timeRemaining_2 = 0;
+count = 0;
 reset = document.getElementById("reset");
 reset.addEventListener("click", resetStatistics);
-
+slider = document.getElementsByClassName("slideshow-container-all")[0];
+slider.style.display = "none";
 container = document.getElementsByClassName("symbol");
+
 //container przyjmuje klasę "symbol"
 elementsSymbol = [];
 //definiuje tablicę symboli elementów
@@ -66,7 +69,8 @@ function checkElement(event) {
             // usuwa kolor z "checked"(szary), a zamiast tego dodaje z "goodAnswer"(zielony)
             
             //goodAnswer+=1;
-            //getGoodAnswer("Poprawnych odpowiedzi: "+goodAnswer);
+            //getGoodAnswer("Poprawnych odpowiedzi: "+goodAnswer);\
+            count+=1;
 
         } else {
             elementsSymbol[randomElement].parentElement.classList.remove("checker");
@@ -76,9 +80,13 @@ function checkElement(event) {
             //badAnswer+=1;
             //getBadAnswer("Błędnych odpowiedzi: "+badAnswer);
         }
-      
+        
         event.target.value = "";
         game();
+        if(count == 3){
+            randomReward()
+            count = 0;
+        }
     }
 }
 
@@ -150,6 +158,16 @@ function time() {
   }
 }
 
+function randomReward(){
+    randomImg = Math.floor(Math.random() * 3)+1;
+    for(x = 1; x < 4; x++){
+        if(randomImg == x){
+            showSlides(slideIndex += x)
+            slider.style.display = ""
+        }
+    }
+}
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -170,11 +188,7 @@ function showSlides(n) {
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";  
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
   slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
 }
 
 img_1.addEventListener("click",rewardFunction);
@@ -187,14 +201,18 @@ function rewardFunction(e){
         elementsSymbol[randomElement].parentElement.classList.remove("checker");
         elementsSymbol[randomElement].parentElement.classList.add("goodAnswer");
         game();
+        slider.style.display = "none"
     }
     if(e.target.id == "img_2"){
         now = new Date().getTime() + timerTime;
         timeRemaining = now - countDownDate ;
         console.log(timeRemaining);
         clearInterval(myTimer);
+        slider.style.display = "none"
     }
     if(e.target.id == "img_3"){
         countDownDate = new Date().getTime() + (timeRemaining_2) + (15000);
+        slider.style.display = "none"
     }
 }
+
