@@ -1,8 +1,10 @@
 var repeatElements = [];
 //definciuje tablicę powtórzonych elementów
-goodAnswer = 0;
-badAnswer = 0;
+//goodAnswer = 0;
+//badAnswer = 0;
 
+check = false;
+var timeRemaining = 0 ;
 reset = document.getElementById("reset");
 reset.addEventListener("click", resetStatistics);
 
@@ -54,16 +56,21 @@ function checkElement(event) {
             elementsSymbol[randomElement].parentElement.classList.add("goodAnswer");
             // usuwa kolor z "checked"(szary), a zamiast tego dodaje z "goodAnswer"(zielony)
             
-            goodAnswer+=1;
-            getGoodAnswer("Poprawnych odpowiedzi: "+goodAnswer);
+            //goodAnswer+=1;
+            //getGoodAnswer("Poprawnych odpowiedzi: "+goodAnswer);
 
         } else {
             elementsSymbol[randomElement].parentElement.classList.remove("checker");
             elementsSymbol[randomElement].parentElement.classList.add("badAnswer");
             // usuwa kolor z "checked" (szary), a zamiast tego dodaje z "badAnswer"(czerwony)
             
-            badAnswer+=1;
-            getBadAnswer("Błędnych odpowiedzi: "+badAnswer);
+            //badAnswer+=1;
+            //getBadAnswer("Błędnych odpowiedzi: "+badAnswer);
+        }
+        if (timeRemaining != 0){
+            countDownDate = timeRemaining ;
+            myTimer = setInterval(time, 1000);
+            timeRemaining = 0 ;
         }
         event.target.value = "";
         game();
@@ -71,20 +78,20 @@ function checkElement(event) {
 }
 
 
-function getGoodAnswer(i){
-    document.getElementById("goodAnswer").innerHTML = i;
-}
+//function getGoodAnswer(i){
+    //document.getElementById("goodAnswer").innerHTML = i;
+//}
 
-function getBadAnswer(i){
-    document.getElementById("badAnswer").innerHTML = i;
-}
+//function getBadAnswer(i){
+    //document.getElementById("badAnswer").innerHTML = i;
+//}
 
 function resetStatistics(){
     repeatElements = [];
-    goodAnswer = 0;
-    badAnswer = 0;
-    getGoodAnswer("Poprawnych odpowiedzi: 0");
-    getBadAnswer("Błędnych odpowiedzi: 0");
+    //goodAnswer = 0;
+    //badAnswer = 0;
+    //getGoodAnswer("Poprawnych odpowiedzi: 0");
+    //getBadAnswer("Błędnych odpowiedzi: 0");
     for (x = 0; x < container.length; x++) {
         if (container[x].textContent != 'DE' && container[x].textContent != 'DEL' && container[x].textContent != '57-71' && container[x].textContent != '89-103') {
             elementsSymbol[y] = container[x];
@@ -117,6 +124,8 @@ function time() {
   // Time calculations for days, hours, minutes and seconds
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
     
   // Output the result in an element with id="demo"
   document.getElementById("timer").innerHTML =  minutes + " min. " + seconds + " sek. ";
@@ -126,12 +135,60 @@ function time() {
     // clearInterval(x);
     clearInterval(myTimer);
     elementsSymbol[randomElement].parentElement.classList.remove("checker");
+    elementsSymbol[randomElement].parentElement.classList.add("badAnswer");
     document.getElementById("timer").innerHTML = "Koniec gry!";
-    //badAnswer+=1;
-    getBadAnswer("Błędnych odpowiedzi: "+badAnswer);
+    //getBadAnswer("Błędnych odpowiedzi: "+badAnswer);
     myInput.disabled = true;
     reset.disabled = false;
     
    
   }
+}
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+img_1.addEventListener("click",rewardFunction);
+img_2.addEventListener("click",rewardFunction);
+img_3.addEventListener("click",rewardFunction);
+
+function rewardFunction(e){
+    console.log(e.target.id); 
+    if(e.target.id == "img_1"){
+
+    }
+    if(e.target.id == "img_2"){
+        timeRemaining = countDownDate ;
+        clearInterval(myTimer);
+
+
+
+    }
+    if(e.target.id == "img_3"){
+        countDownDate = new Date().getTime() + (timeRemaining) + (15000);
+    }
 }
